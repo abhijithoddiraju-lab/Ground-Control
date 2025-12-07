@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ground Control Ball Game</title>
+<link rel="stylesheet" href="gamestyle.css" />
+</head>
+<body>
+  <div id="gameWrap">
+    <canvas id="game" width="900" height="540"></canvas>
+    <div class="controls">
+      <div style="display:flex;gap:10px;align-items:center;">
+        <button id="restartBtn">⟲</button>
+        <button id="pauseBtn">⏸</button>
+        <button id="testCollBtn">🔧</button>
+      </div>
+      <!-- Wave / timer badge -->
+      <div id="waveBadge" aria-live="polite" style="margin-left:6px;">Wave 1 · 0.0s</div>
+    </div>
+
+    <!-- Home / start screen overlay -->
+    <div id="homeScreen" class="home-screen">
+      <div class="home-card">
+        <h1>Ground Control</h1>
+        <p>Use W/S to raise/lower, A/D to tilt. Survive the waves.</p>
+        <div style="margin-top:12px; text-align:left;">
+          <div class="settings">
+            <label>Enemies base per wave: <input id="settingEnemies" type="range" min="1" max="10" value="1" /> <span id="settingEnemiesVal">1</span></label>
+            <br/>
+            <label>Health pack interval (s): <input id="settingHpInterval" type="range" min="2" max="40" value="12" /> <span id="settingHpIntervalVal">12</span></label>
+            <br/>
+            <label>Ground thickness: <input id="settingGroundThickness" type="range" min="4" max="120" value="24" /> <span id="settingGroundThicknessVal">24</span></label>
+            <br/>
+            <label>Enemy damage per hit: <input id="settingDamage" type="range" min="1" max="60" value="10" /> <span id="settingDamageVal">10</span></label>
+            <div style="margin-top:10px; display:flex; gap:8px;">
+              <button id="saveSettingsBtn">Save</button>
+              <button id="startBtn">Start Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Big wave overlay (shown briefly between waves) -->
+    <div id="waveOverlay" class="wave-overlay" aria-hidden="true">Wave 1</div>
+  </div>
+
+<script src="game.js"></script>
+</body>
+</html>
